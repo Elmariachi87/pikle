@@ -47,8 +47,8 @@ function displayPhotos() {
         const img = document.createElement('img');
         setAttributes(img, {
             src: photo.urls.regular,
-            alt: photo.alt_description,
-            title: photo.alt_description,
+            alt: photo.description,
+            title: photo.description,
         });
 
         // Event Listener, check when each is finished loading
@@ -64,7 +64,7 @@ async function getPhotos() {
     try {
         const response = await fetch(apiUrl);
         photosArray = await response.json();
-        // console.log(photosArray);
+        console.log(photosArray);
         displayPhotos();
     } catch (error) {
         //Catch error here
@@ -81,6 +81,8 @@ window.addEventListener('scroll', () => {
 })
 // On load
 getPhotos();
+
+
 
 // Notes:
 // To look for the content to pull & display - go to console view - select network - Ctrl+R - client - preview and open up the links
